@@ -28,7 +28,6 @@ import java.util.concurrent.ThreadFactory;
 
 import org.graalvm.compiler.api.replacements.Fold;
 
-import com.oracle.svm.core.annotate.AlwaysInline;
 import com.oracle.svm.core.util.VMError;
 
 class NoVirtualThreads implements VirtualThreads {
@@ -47,7 +46,6 @@ class NoVirtualThreads implements VirtualThreads {
         throw unreachable();
     }
 
-    @AlwaysInline("Eliminate code handling virtual threads.")
     @Override
     public boolean isVirtual(Thread thread) {
         return false;

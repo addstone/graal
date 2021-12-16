@@ -31,7 +31,6 @@ import java.util.concurrent.ThreadFactory;
 import org.graalvm.compiler.api.replacements.Fold;
 
 import com.oracle.svm.core.SubstrateUtil;
-import com.oracle.svm.core.annotate.AlwaysInline;
 import com.oracle.svm.core.util.VMError;
 
 /**
@@ -57,7 +56,6 @@ final class LoomVirtualThreads extends NoVirtualThreads {
         throw VMError.unimplemented();
     }
 
-    @AlwaysInline("Eliminate code handling virtual threads.")
     @Override
     public boolean isVirtual(Thread thread) {
         return Target_java_lang_VirtualThread.class.isInstance(thread);
